@@ -813,7 +813,7 @@ footer {
       <div class="contact-details reveal reveal-d3">
         <div class="contact-detail">
           <div class="contact-detail-icon">✉</div>
-          <div class="contact-detail-text"><strong>Email</strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8fe4e4eda1ece0fde6cfe8e2eee6e3a1ece0e2">[email&#160;protected]</a></div>
+          <div class="contact-detail-text"><strong>Email</strong><span id="contactEmail"></span></div>
         </div>
         <div class="contact-detail">
           <div class="contact-detail-icon">⟐</div>
@@ -856,7 +856,7 @@ footer {
       <a href="#">LinkedIn</a>
       <a href="#">Twitter / X</a>
       <a href="#">GitHub</a>
-      <a href="/cdn-cgi/l/email-protection#432828216d202c312a03242e222a2f6d202c2e">Email Us</a>
+      <a href="#" id="footerEmail">Email Us</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -865,7 +865,7 @@ footer {
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ===== NAV SCROLL =====
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
@@ -898,6 +898,17 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     document.getElementById('mobileToggle').classList.remove('active');
   });
 });
+
+// ===== RENDER EMAIL (anti-scraping) =====
+(function() {
+  var u = 'kkb.cori';
+  var d = 'gmail.com';
+  var full = u + '@' + d;
+  var el = document.getElementById('contactEmail');
+  if (el) el.textContent = full;
+  var fe = document.getElementById('footerEmail');
+  if (fe) fe.href = 'mai' + 'lto:' + full;
+})();
 
 </script>
 
